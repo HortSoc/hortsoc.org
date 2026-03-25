@@ -10,25 +10,27 @@ const siteBase = isGitHubPagesBuild ? `/${repositoryName}` : "/";
 function prefixRootRelativeMarkdownUrls(base) {
   const normalizedBase = !base || base === "/" ? "/" : `/${base.replace(/^\/+|\/+$/g, "")}`;
 
-  return function rehypePrefixRootRelativeMarkdownUrls(tree) {
-    visitTree(tree, (node) => {
-      if (node.type !== "element" || !node.properties) {
-        return;
-      }
-
-      for (const key of ["href", "src"]) {
-        const value = node.properties[key];
-        if (typeof value !== "string" || !value.startsWith("/") || value.startsWith("//")) {
-          continue;
+  return function rehypePrefixRootRelativeMarkdownUrls() {
+    return function transformMarkdownTree(tree) {
+      visitTree(tree, (node) => {
+        if (node.type !== "element" || !node.properties) {
+          return;
         }
 
-        if (normalizedBase === "/") {
-          continue;
-        }
+        for (const key of ["href", "src"]) {
+          const value = node.properties[key];
+          if (typeof value !== "string" || !value.startsWith("/") || value.startsWith("//")) {
+            continue;
+          }
 
-        node.properties[key] = value === "/" ? normalizedBase : `${normalizedBase}${value}`;
-      }
-    });
+          if (normalizedBase === "/") {
+            continue;
+          }
+
+          node.properties[key] = value === "/" ? normalizedBase : `${normalizedBase}${value}`;
+        }
+      });
+    };
   };
 }
 
