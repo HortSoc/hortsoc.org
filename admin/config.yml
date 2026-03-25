@@ -1,0 +1,411 @@
+backend:
+  name: github
+  repo: robsilv/Hortsoc.org
+  branch: main
+
+local_backend: true
+site_url: https://hortsoc.org
+display_url: https://hortsoc.org
+media_folder: public/media/uploads
+public_folder: /media/uploads
+publish_mode: editorial_workflow
+
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+editor:
+  preview: false
+
+collections:
+  - name: pages
+    label: Pages
+    description: >
+      First safe Decap slice for ordinary Markdown pages. Special runtime pages
+      such as home, gallery, and blog index remain outside this collection.
+    files:
+      - label: About
+        name: about
+        file: src/content/pages/about.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /about/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/about/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Converted conservatively from the published WordPress page body. Legacy editor classes and inline presentation markup were removed while preserving headings, paragraphs, and quoted society objects text." }
+          - { label: Body, name: body, widget: markdown }
+      - label: Annual Show
+        name: annual_show
+        file: src/content/pages/annual-show.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /annual-show/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/annual-show/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export." }
+          - { label: Body, name: body, widget: markdown }
+      - label: Contacts
+        name: contacts
+        file: src/content/pages/contacts.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /contacts/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/contacts/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export." }
+          - { label: Body, name: body, widget: markdown }
+      - label: Membership
+        name: membership
+        file: src/content/pages/membership.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /membership/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/membership/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export." }
+          - { label: Body, name: body, widget: markdown }
+      - label: Schools Liaison
+        name: schools_liaison
+        file: src/content/pages/schools-liaison.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /schools-liaison/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/schools-liaison/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export." }
+          - { label: Body, name: body, widget: markdown }
+      - label: Tree Planting
+        name: tree_planting
+        file: src/content/pages/tree-planting.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /tree-planting/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/tree-planting/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export; legacy tree-planting child attachment routes now redirect directly to their media files instead of remaining as canonical pages." }
+          - { label: Body, name: body, widget: markdown }
+      - label: What's On
+        name: whats_on
+        file: src/content/pages/whats-on.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /whats-on/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/whats-on/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export." }
+          - { label: Body, name: body, widget: markdown }
+      - label: Who's Who
+        name: whoswho
+        file: src/content/pages/whoswho.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /whoswho/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/whoswho/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export." }
+          - { label: Body, name: body, widget: markdown }
+      - label: Winners 2021
+        name: winners_2021
+        file: src/content/pages/winners-2021.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /winners-2021/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/winners-2021/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export." }
+          - { label: Body, name: body, widget: markdown }
+
+  - name: blog_posts
+    label: Blog Posts
+    description: >
+      First Decap blog slice for dated Markdown post bodies. Sidebar metadata
+      remains derived from the structured blog registry until the next pass.
+    files:
+      - label: The 127th Annual Show
+        name: summer_newsletter
+        file: src/content/pages/summer-newsletter.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /2017/07/01/summer-newsletter/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/2017/07/01/summer-newsletter/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Converted conservatively from the published WordPress post body. Preserved the volunteer call and contact details, and dropped only empty spacing markup and the trailing horizontal rule." }
+          - { label: Body, name: body, widget: markdown }
+      - label: LITTLE GREEN FINGERS
+        name: little_green_fingers
+        file: src/content/pages/little-green-fingers.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /2017/08/09/little-green-fingers/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/2017/08/09/little-green-fingers/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export." }
+          - { label: Body, name: body, widget: markdown }
+      - label: From the Pumpkin Patch
+        name: from_the_pumpkin_patch
+        file: src/content/pages/from-the-pumpkin-patch.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /2017/09/05/from-the-pumpkin-patch/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/2017/09/05/from-the-pumpkin-patch/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export." }
+          - { label: Body, name: body, widget: markdown }
+      - label: Metaldehyde slug pellets banned
+        name: metaldehyde_slug_pellets_banned
+        file: src/content/pages/metaldehyde-slug-pellets-banned.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /2019/02/11/metaldehyde-slug-pellets-banned/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/2019/02/11/metaldehyde-slug-pellets-banned/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export." }
+          - { label: Body, name: body, widget: markdown }
+      - label: Queen's Award for Voluntary Service
+        name: queen_award_for_voluntary_service
+        file: src/content/pages/queen-award-for-voluntary-service.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /2019/06/03/963/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/2019/06/03/963/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export with a conservatively inferred title because the source post title was blank." }
+          - { label: Body, name: body, widget: markdown }
+      - label: OCTOBER Seasonal Tips
+        name: april_seasonal_tips
+        file: src/content/pages/april-seasonal-tips.md
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Path, name: path, widget: hidden, default: /2020/01/01/april-seasonal-tips/ }
+          - { label: Source URL, name: source_url, widget: hidden, default: https://hortsoc.org/2020/01/01/april-seasonal-tips/ }
+          - { label: Migration Status, name: migration_status, widget: hidden, default: migrated }
+          - { label: Notes, name: notes, widget: hidden, default: "Migrated into Markdown from the published WordPress export." }
+          - { label: Body, name: body, widget: markdown }
+
+  - name: blog_registry
+    label: Blog Registry
+    description: >
+      Structured blog metadata used for categories, archives, excerpts, and
+      featured images. Keep dated paths stable.
+    files:
+      - label: Blog Metadata
+        name: blog_metadata
+        file: src/content/blog-posts.json
+        fields:
+          - label: Posts
+            name: posts
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Path, name: path, widget: string }
+              - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DDTHH:mm:ss[Z]" }
+              - label: Categories
+                name: categories
+                widget: list
+                field: { label: Category, name: category, widget: string }
+              - { label: Excerpt, name: excerpt, widget: text }
+              - label: Featured Image
+                name: featuredImage
+                widget: object
+                required: false
+                collapsed: true
+                fields:
+                  - { label: Source, name: src, widget: string, required: false }
+                  - { label: Alt Text, name: alt, widget: string, required: false }
+
+  - name: navigation
+    label: Navigation
+    files:
+      - label: Site Navigation
+        name: site_navigation
+        file: src/content/site-navigation.json
+        fields:
+          - label: Primary Navigation
+            name: primaryNavigation
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Href, name: href, widget: string }
+              - label: Children
+                name: children
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Href, name: href, widget: string }
+          - label: Footer Navigation
+            name: footerNavigation
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: Href, name: href, widget: string }
+          - label: Find Us
+            name: footerFindUs
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Map
+                name: map
+                widget: object
+                fields:
+                  - { label: Embed URL, name: embed_url, widget: string }
+                  - { label: Title, name: title, widget: string }
+              - label: Address
+                name: address
+                widget: object
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Href, name: href, widget: string }
+                  - { label: External, name: external, widget: boolean, default: true }
+          - label: Footer Middle Sections
+            name: footerMiddleSections
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Items
+                name: items
+                widget: list
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: Href, name: href, widget: string }
+                  - { label: External, name: external, widget: boolean, default: false }
+          - label: Footer Search
+            name: footerSearch
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Action, name: action, widget: string }
+              - { label: Field Name, name: field_name, widget: string }
+              - { label: Placeholder, name: placeholder, widget: string }
+              - { label: Button Label, name: button_label, widget: string }
+
+  - name: shared_assets
+    label: Shared Assets
+    files:
+      - label: Site Assets
+        name: site_assets
+        file: src/content/site-assets.json
+        fields:
+          - label: Site Brand
+            name: siteBrand
+            widget: object
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Short Name, name: shortName, widget: string }
+              - { label: Tagline, name: tagline, widget: string }
+              - { label: Footer Note, name: footerNote, widget: string }
+              - { label: Location, name: location, widget: string }
+          - label: Site Asset Plan
+            name: siteAssetPlan
+            widget: object
+            fields:
+              - { label: Inventory Notes, name: inventory_notes, widget: text }
+              - label: Masthead Banner
+                name: masthead_banner
+                widget: object
+                fields:
+                  - { label: Current Path, name: current_path, widget: string }
+                  - { label: Source URL, name: source_url, widget: string }
+                  - { label: Alt, name: alt, widget: string }
+                  - { label: Status, name: status, widget: string }
+                  - { label: Notes, name: notes, widget: text }
+              - label: Home Hero
+                name: home_hero
+                widget: object
+                fields:
+                  - { label: Current Path, name: current_path, widget: string }
+                  - { label: Source URL, name: source_url, widget: string }
+                  - { label: Alt, name: alt, widget: string }
+                  - { label: Status, name: status, widget: string }
+                  - { label: Notes, name: notes, widget: text }
+              - label: Annual Show Banner
+                name: annual_show_banner
+                widget: object
+                fields:
+                  - { label: Planned Path, name: planned_path, widget: string }
+                  - { label: Alt, name: alt, widget: string }
+                  - { label: Status, name: status, widget: string }
+                  - { label: Notes, name: notes, widget: text }
+              - label: Page Heroes
+                name: page_heroes
+                widget: object
+                fields:
+                  - label: About
+                    name: about
+                    widget: object
+                    fields:
+                      - { label: Current Path, name: current_path, widget: string }
+                      - { label: Source URL, name: source_url, widget: string }
+                      - { label: Alt, name: alt, widget: string }
+                      - { label: Status, name: status, widget: string }
+                      - { label: Notes, name: notes, widget: text }
+                  - label: Membership
+                    name: membership
+                    widget: object
+                    fields:
+                      - { label: Current Path, name: current_path, widget: string }
+                      - { label: Source URL, name: source_url, widget: string }
+                      - { label: Alt, name: alt, widget: string }
+                      - { label: Status, name: status, widget: string }
+                      - { label: Notes, name: notes, widget: text }
+                  - label: What's On
+                    name: whats_on
+                    widget: object
+                    fields:
+                      - { label: Current Path, name: current_path, widget: string }
+                      - { label: Source URL, name: source_url, widget: string }
+                      - { label: Alt, name: alt, widget: string }
+                      - { label: Status, name: status, widget: string }
+                      - { label: Notes, name: notes, widget: text }
+              - label: Home Feature Cards
+                name: home_feature_cards
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Href, name: href, widget: string }
+                  - { label: Summary, name: summary, widget: text }
+                  - label: Image
+                    name: image
+                    widget: object
+                    fields:
+                      - { label: Current Path, name: current_path, widget: string }
+                      - { label: Source URL, name: source_url, widget: string }
+                      - { label: Alt, name: alt, widget: string }
+                      - { label: Status, name: status, widget: string }
+              - label: Home Spotlight
+                name: home_spotlight
+                widget: object
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - label: Image
+                    name: image
+                    widget: object
+                    fields:
+                      - { label: Current Path, name: current_path, widget: string }
+                      - { label: Source URL, name: source_url, widget: string }
+                      - { label: Alt, name: alt, widget: string }
+                      - { label: Status, name: status, widget: string }
+                  - { label: Notes, name: notes, widget: text }
+              - label: Home Notice
+                name: home_notice
+                widget: object
+                fields:
+                  - { label: Title, name: title, widget: string }
+                  - { label: Body, name: body, widget: text }
+              - label: Home Poster
+                name: home_poster
+                widget: object
+                fields:
+                  - { label: Current Path, name: current_path, widget: string }
+                  - { label: Source URL, name: source_url, widget: string }
+                  - { label: Alt, name: alt, widget: string }
+                  - { label: Status, name: status, widget: string }
+                  - { label: Notes, name: notes, widget: text }
