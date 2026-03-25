@@ -24,7 +24,7 @@
   "footerFindUs": {
     "title": "Find Us",
     "map": {
-      "embed_url": "https://www.google.com/maps/embed/v1/place?q=The+Stoke+Poges+School,+Rogers+Lane,+Stoke+Poges,+Bucks,+SL2+4LN&key=AIzaSyBxmF7a0lw6_hRzir4GhEG-SNErCsEXGDw",
+      "embed_url": "https://maps.google.com/maps?q=The%20Stoke%20Poges%20School,%20Rogers%20Lane,%20Stoke%20Poges,%20Bucks,%20SL2%204LN&z=15&output=embed",
       "title": "Map showing The Stoke Poges School, Rogers Lane, Stoke Poges, Bucks, SL2 4LN"
     },
     "address": {
