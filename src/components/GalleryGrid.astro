@@ -1,5 +1,8 @@
 ---
+import { withBase } from "../lib/urls.mjs";
+
 const { sections = [] } = Astro.props;
+const basePath = import.meta.env.BASE_URL;
 ---
 
 {
@@ -17,13 +20,13 @@ const { sections = [] } = Astro.props;
             {section.groups.length > 1 || group.title !== section.title ? <h3>{group.title}</h3> : null}
 
             <div class="gallery-grid">
-              {group.items.map((item) => (
-                <article class="gallery-card">
-                  <a href={item.image_url}>
-                    <img src={item.image_url} alt={item.caption ?? `${section.title} image ${item.title}`} loading="lazy" />
-                  </a>
-                  {item.caption ? <p>{item.caption}</p> : null}
-                </article>
+                {group.items.map((item) => (
+                  <article class="gallery-card">
+                    <a href={withBase(item.image_url, basePath)}>
+                      <img src={withBase(item.image_url, basePath)} alt={item.caption ?? `${section.title} image ${item.title}`} loading="lazy" />
+                    </a>
+                    {item.caption ? <p>{item.caption}</p> : null}
+                  </article>
               ))}
             </div>
           </section>

@@ -1,5 +1,8 @@
 ---
+import { withBase } from "../lib/urls.mjs";
+
 const { sections = [] } = Astro.props;
+const basePath = import.meta.env.BASE_URL;
 
 function getSectionItemCount(section) {
   return section.groups.reduce((count, group) => count + group.items.length, 0);
@@ -18,20 +21,20 @@ function getSectionPreview(section) {
     return (
       <article class="gallery-index-card">
         {preview ? (
-          <a class="gallery-index-image" href={section.path}>
-            <img src={preview.image_url} alt={preview.caption ?? `${section.title} preview`} loading="lazy" />
+          <a class="gallery-index-image" href={withBase(section.path, basePath)}>
+            <img src={withBase(preview.image_url, basePath)} alt={preview.caption ?? `${section.title} preview`} loading="lazy" />
           </a>
         ) : null}
 
         <div class="gallery-index-copy page-content">
           <h2>
-            <a href={section.path}>{section.title}</a>
+            <a href={withBase(section.path, basePath)}>{section.title}</a>
           </h2>
           <p>{section.summary}</p>
           <p class="gallery-index-meta">
             {itemCount} image{itemCount === 1 ? "" : "s"}
           </p>
-          <a class="gallery-index-link" href={section.path}>
+          <a class="gallery-index-link" href={withBase(section.path, basePath)}>
             View gallery <span aria-hidden="true">→</span>
           </a>
         </div>
