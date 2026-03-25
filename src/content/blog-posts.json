@@ -1,0 +1,64 @@
+{
+  "posts": [
+    {
+    "title": "OCTOBER Seasonal Tips",
+    "path": "/2020/01/01/april-seasonal-tips/",
+    "date": "2020-01-01T18:56:20Z",
+    "categories": ["Uncategorized"],
+    "excerpt": "Seasonal October gardening notes covering lawns, bulbs, hedges, autumn fruit, and greenhouse jobs.",
+    "featuredImage": {
+      "src": "/media/blog/2020/april-seasonal-tips/vegbox_2_-28_2048x.jpg",
+      "alt": "Autumn vegetable harvest"
+    }
+    },
+    {
+    "title": "Queen's Award for Voluntary Service",
+    "path": "/2019/06/03/963/",
+    "date": "2019-06-03T06:59:16Z",
+    "categories": ["Uncategorized"],
+    "excerpt": "The Society is honoured with the Queen’s Award for Voluntary Service, recognising generations of community horticultural work.",
+    "featuredImage": {
+      "src": "/media/home/facebook-award.jpg",
+      "alt": "Queen's Award for Voluntary Service graphic"
+    }
+    },
+    {
+    "title": "Metaldehyde slug pellets banned",
+    "path": "/2019/02/11/metaldehyde-slug-pellets-banned/",
+    "date": "2019-02-11T15:08:22Z",
+    "categories": ["Uncategorized"],
+    "excerpt": "A gardening advisory note on the ban on metaldehyde slug pellets and safer alternatives for controlling slugs and snails.",
+    "featuredImage": null
+    },
+    {
+    "title": "From the Pumpkin Patch",
+    "path": "/2017/09/05/from-the-pumpkin-patch/",
+    "date": "2017-09-05T11:46:39Z",
+    "categories": ["Uncategorized"],
+    "excerpt": "A late-summer pumpkin growing update with a first crop, a bit of weighing, and hopes for Halloween colour.",
+    "featuredImage": {
+      "src": "/media/blog/2017/from-the-pumpkin-patch/img_0792.jpg",
+      "alt": "Pumpkins growing in the garden"
+    }
+    },
+    {
+    "title": "LITTLE GREEN FINGERS",
+    "path": "/2017/08/09/little-green-fingers/",
+    "date": "2017-08-09T20:47:40Z",
+    "categories": ["Children"],
+    "excerpt": "Young gardeners’ tips and activities, from sowing annuals and wildflowers to easy windowsill crops like cress.",
+    "featuredImage": {
+      "src": "/media/blog/2017/little-green-fingers/img_0556.jpg",
+      "alt": "Little Green Fingers gardening activity"
+    }
+    },
+    {
+    "title": "The 127th Annual Show",
+    "path": "/2017/07/01/summer-newsletter/",
+    "date": "2017-07-01T09:23:25Z",
+    "categories": ["Newsletter"],
+    "excerpt": "An update on the Annual Show, with the date, schedule timing, children’s classes, and a call for volunteers.",
+    "featuredImage": null
+    }
+  ]
+}

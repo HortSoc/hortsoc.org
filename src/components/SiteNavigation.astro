@@ -1,0 +1,157 @@
+---
+import { withBase } from "../lib/urls.mjs";
+
+const { items = [], currentPath = "/" } = Astro.props;
+const basePath = import.meta.env.BASE_URL;
+
+const isActive = (href) => {
+  if (href === "/") {
+    return currentPath === "/";
+  }
+
+  return currentPath === href || currentPath.startsWith(href);
+};
+---
+
+<nav class="site-nav" aria-label="Primary">
+  <ul class="nav-list">
+    {items.map((item) => (
+      <li class:list={["nav-item", { "has-children": item.children?.length }]}>
+        <a href={withBase(item.href, basePath)} aria-current={isActive(item.href) ? "page" : undefined}>
+          {item.label}
+        </a>
+
+        {
+          item.children?.length ? (
+            <ul class="sub-menu" aria-label={`${item.label} sections`}>
+              {item.children.map((child) => (
+                <li>
+                  <a href={withBase(child.href, basePath)} aria-current={isActive(child.href) ? "page" : undefined}>
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : null
+        }
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<style>
+  .site-nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-item + .nav-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 0.95rem;
+    transform: translateY(-50%);
+    background: rgba(202, 222, 134, 0.78);
+  }
+
+  .nav-list > li > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.25rem;
+    padding: 0.12rem 0.75rem;
+    color: var(--site-nav-text);
+    text-decoration: none;
+    font-family: var(--font-ui);
+    font-size: 0.79rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 160ms ease, text-decoration-color 160ms ease;
+    white-space: nowrap;
+  }
+
+  .nav-list > li > a:hover,
+  .nav-list > li > a:focus-visible,
+  .nav-list > li > a[aria-current="page"] {
+    color: var(--site-nav-accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18rem;
+  }
+
+  .sub-menu {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 0.1rem);
+    transform: translateX(-50%);
+    list-style: none;
+    margin: 0;
+    padding: 0.35rem 0;
+    min-width: 12rem;
+    background: #f8f4e9;
+    border: 1px solid rgba(132, 150, 71, 0.26);
+    box-shadow: 0 16px 24px rgba(45, 56, 32, 0.12);
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 5;
+    transition: opacity 140ms ease;
+  }
+
+  .has-children:hover .sub-menu,
+  .has-children:focus-within .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .sub-menu a {
+    display: block;
+    padding: 0.45rem 1rem;
+    color: #444444;
+    text-decoration: none;
+    font-family: var(--font-ui);
+    font-size: 0.84rem;
+  }
+
+  .sub-menu a:hover,
+  .sub-menu a:focus-visible,
+  .sub-menu a[aria-current="page"] {
+    background: rgba(167, 201, 54, 0.2);
+    color: var(--site-nav-accent);
+  }
+
+  @media (max-width: 44rem) {
+    .nav-list {
+      gap: 0.1rem 0;
+    }
+
+    .nav-item + .nav-item::before {
+      display: none;
+    }
+
+    .nav-list > li > a {
+      min-height: 2rem;
+      padding-inline: 0.55rem;
+      font-size: 0.74rem;
+    }
+  }
+</style>
