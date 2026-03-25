@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../lib/urls.mjs";
 import BlogSidebar from "./BlogSidebar.astro";
 import { blogArchiveFilters, blogCategoryFilters, blogPosts, getRecentBlogPosts, formatBlogDate } from "../content/blog-posts.mjs";
 
@@ -12,6 +13,7 @@ const {
   activeArchive = null,
 } = Astro.props;
 const recentPosts = getRecentBlogPosts();
+const basePath = import.meta.env.BASE_URL;
 ---
 
 <section class="blog-layout page-shell">
@@ -35,17 +37,17 @@ const recentPosts = getRecentBlogPosts();
       {posts.map((post) => (
         <article class="blog-card">
           {post.featuredImage ? (
-            <a class="blog-card-image" href={post.path}>
-              <img src={post.featuredImage.src} alt={post.featuredImage.alt} loading="lazy" />
+            <a class="blog-card-image" href={withBase(post.path, basePath)}>
+              <img src={withBase(post.featuredImage.src, basePath)} alt={post.featuredImage.alt} loading="lazy" />
             </a>
           ) : null}
           <div class="blog-card-copy">
             <p class="blog-card-date">{formatBlogDate(post.dateObject)}</p>
             <h2>
-              <a href={post.path}>{post.title}</a>
+              <a href={withBase(post.path, basePath)}>{post.title}</a>
             </h2>
             <p>{post.excerpt}</p>
-            <a class="read-more" href={post.path}>Read more →</a>
+            <a class="read-more" href={withBase(post.path, basePath)}>Read more →</a>
           </div>
         </article>
       ))}
