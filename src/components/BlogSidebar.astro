@@ -1,5 +1,8 @@
 ---
+import { withBase } from "../lib/urls.mjs";
+
 const { categories = [], recentPosts = [], archives = [], activeCategory = null, activeArchive = null } = Astro.props;
+const basePath = import.meta.env.BASE_URL;
 ---
 
 <aside class="blog-sidebar">
@@ -8,7 +11,9 @@ const { categories = [], recentPosts = [], archives = [], activeCategory = null,
     <ul>
       {categories.map((category) => (
         <li>
-          <a class:list={[activeCategory === category.name && "is-active"]} href={category.path}>{category.name}</a>
+          <a class:list={[activeCategory === category.name && "is-active"]} href={withBase(category.path, basePath)}>
+            {category.name}
+          </a>
         </li>
       ))}
     </ul>
@@ -19,7 +24,7 @@ const { categories = [], recentPosts = [], archives = [], activeCategory = null,
     <ul>
       {recentPosts.map((post) => (
         <li>
-          <a href={post.path}>{post.title}</a>
+          <a href={withBase(post.path, basePath)}>{post.title}</a>
         </li>
       ))}
     </ul>
@@ -30,7 +35,9 @@ const { categories = [], recentPosts = [], archives = [], activeCategory = null,
     <ul>
       {archives.map((archive) => (
         <li>
-          <a class:list={[activeArchive === archive.key && "is-active"]} href={archive.path}>{archive.label}</a>
+          <a class:list={[activeArchive === archive.key && "is-active"]} href={withBase(archive.path, basePath)}>
+            {archive.label}
+          </a>
         </li>
       ))}
     </ul>

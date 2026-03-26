@@ -58,6 +58,14 @@ export function getRecentBlogPosts(limit = 5) {
   return blogPosts.slice(0, limit);
 }
 
+export function getBlogSidebarData({ recentPostLimit = 5 } = {}) {
+  return {
+    categories: blogCategoryFilters,
+    recentPosts: getRecentBlogPosts(recentPostLimit),
+    archives: blogArchiveFilters,
+  };
+}
+
 export function getBlogPostsByCategory(categoryName) {
   return blogPosts.filter((post) => post.categories.includes(categoryName));
 }

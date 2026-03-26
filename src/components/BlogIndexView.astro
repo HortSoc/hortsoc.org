@@ -1,7 +1,7 @@
 ---
 import { withBase } from "../lib/urls.mjs";
 import BlogSidebar from "./BlogSidebar.astro";
-import { blogArchiveFilters, blogCategoryFilters, blogPosts, getRecentBlogPosts, formatBlogDate } from "../content/blog-posts.mjs";
+import { blogPosts, formatBlogDate, getBlogSidebarData } from "../content/blog-posts.mjs";
 
 const {
   page,
@@ -12,7 +12,7 @@ const {
   activeCategory = null,
   activeArchive = null,
 } = Astro.props;
-const recentPosts = getRecentBlogPosts();
+const blogSidebarData = getBlogSidebarData();
 const basePath = import.meta.env.BASE_URL;
 ---
 
@@ -55,9 +55,9 @@ const basePath = import.meta.env.BASE_URL;
   </div>
 
   <BlogSidebar
-    categories={blogCategoryFilters}
-    recentPosts={recentPosts}
-    archives={blogArchiveFilters}
+    categories={blogSidebarData.categories}
+    recentPosts={blogSidebarData.recentPosts}
+    archives={blogSidebarData.archives}
     activeCategory={activeCategory}
     activeArchive={activeArchive}
   />
