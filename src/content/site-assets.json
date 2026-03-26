@@ -37,11 +37,11 @@
         "notes": "Derived from the WordPress export via the About page featured image (_thumbnail_id 36) and now ingested locally as part of the first reviewed hero-asset batch."
       },
       "membership": {
-        "current_path": "/media/home/membership.jpg",
+        "current_path": "/media/heroes/membership/members.png",
         "source_url": "https://hortsoc.org/wp-content/uploads/2016/11/members1.jpg",
         "alt": "Visitors and members at the horticultural society annual show",
         "status": "ingested_local",
-        "notes": "Derived from the WordPress export via the Membership page featured image (_thumbnail_id 95) and reuses the locally ingested membership image so the rebuilt Membership page can match the live editorial layout."
+        "notes": "Dedicated high-resolution membership hero installed locally so the rebuilt Membership page does not upscale the smaller homepage card image."
       },
       "whats_on": {
         "current_path": "/media/heroes/whats-on/band.jpg",
