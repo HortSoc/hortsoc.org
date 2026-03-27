@@ -50,12 +50,15 @@ const basePath = import.meta.env.BASE_URL;
   .brand-link {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
   }
 
   .masthead-image {
     display: block;
     width: min(23rem, 100%);
     height: auto;
+    margin: 0 auto;
     object-fit: contain;
     filter: drop-shadow(0 4px 10px rgba(55, 70, 43, 0.06));
   }
@@ -76,7 +79,7 @@ const basePath = import.meta.env.BASE_URL;
     }
 
     .masthead-image {
-      width: min(18rem, 100%);
+      width: min(17.25rem, calc(100% - 1.5rem));
     }
   }
 </style>

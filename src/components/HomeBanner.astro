@@ -67,9 +67,25 @@ const basePath = import.meta.env.BASE_URL;
   }
 
   @media (max-width: 42rem) {
+    .home-banner {
+      min-height: 31rem;
+    }
+
+    .home-banner-image {
+      height: 31rem;
+      aspect-ratio: auto;
+    }
+
+    .home-banner-overlay {
+      place-items: center;
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+    }
+
     .home-banner-copy {
       width: calc(100% - 1.5rem);
       padding: 0.85rem 1rem;
+      transform: translateY(-3%);
     }
   }
 </style>
