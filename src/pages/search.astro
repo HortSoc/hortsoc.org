@@ -26,7 +26,7 @@ const basePath = import.meta.env.BASE_URL;
     </section>
   </section>
 
-  <script type="application/json" id="search-index-data" set:html={JSON.stringify(searchDocuments)} />
+  <script type="application/json" id="search-index-data" data-base={basePath} set:html={JSON.stringify(searchDocuments)} />
   <script is:inline>
     (() => {
       const input = document.getElementById("site-search-input");
@@ -34,6 +34,7 @@ const basePath = import.meta.env.BASE_URL;
       const list = document.getElementById("search-results-list");
       const dataNode = document.getElementById("search-index-data");
       const documents = JSON.parse(dataNode?.textContent ?? "[]");
+      const siteBase = normalizeBasePath(dataNode?.dataset.base ?? "/");
       const params = new URLSearchParams(window.location.search);
       const query = (params.get("q") ?? "").trim();
 
@@ -64,16 +65,17 @@ const basePath = import.meta.env.BASE_URL;
         results.forEach((result) => {
           const article = document.createElement("article");
           article.className = "search-result";
+          const resultHref = toSitePath(result.path);
 
           const heading = document.createElement("h2");
           const link = document.createElement("a");
-          link.href = result.path;
+          link.href = resultHref;
           link.textContent = result.title;
           heading.appendChild(link);
 
           const meta = document.createElement("p");
           meta.className = "search-result-path";
-          meta.textContent = result.path;
+          meta.textContent = resultHref;
 
           const excerpt = document.createElement("p");
           excerpt.className = "search-result-snippet";
@@ -125,6 +127,22 @@ const basePath = import.meta.env.BASE_URL;
 
       function escapeRegExp(text) {
         return text.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      }
+
+      function normalizeBasePath(value) {
+        if (!value || value === "/") {
+          return "/";
+        }
+
+        return value.endsWith("/") ? value.slice(0, -1) : value;
+      }
+
+      function toSitePath(pathname) {
+        if (typeof pathname !== "string" || !pathname.startsWith("/") || pathname.startsWith("//")) {
+          return pathname;
+        }
+
+        return siteBase === "/" ? pathname : pathname === "/" ? `${siteBase}/` : `${siteBase}${pathname}`;
       }
     })();
   </script>
