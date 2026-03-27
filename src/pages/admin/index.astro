@@ -9,19 +9,145 @@ const title = "Hortsoc Admin";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style is:global>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #f3f3f7;
+      }
+
+      .admin-gate {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 1.5rem;
+        box-sizing: border-box;
+      }
+
+      .admin-gate-card {
+        width: min(26rem, 100%);
+        padding: 2rem 1.5rem;
+        background: #ffffff;
+        box-shadow: 0 18px 40px rgba(33, 36, 44, 0.1);
+        text-align: center;
+      }
+
+      .admin-gate-card h1 {
+        margin: 0 0 0.8rem;
+        font-size: 1.6rem;
+      }
+
+      .admin-gate-card p {
+        margin: 0 0 1.5rem;
+        color: #52565f;
+        line-height: 1.5;
+      }
+
+      .admin-login-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 13rem;
+        padding: 0.85rem 1.1rem;
+        border: 0;
+        background: #2d333b;
+        color: #ffffff;
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .admin-login-button:hover,
+      .admin-login-button:focus-visible {
+        background: #1f252c;
+      }
+
+      .admin-status {
+        margin-top: 1rem;
+        color: #52565f;
+        font-size: 0.95rem;
+      }
+
+      .admin-gate.is-hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <script src="https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js"></script>
+    <main class="admin-gate">
+      <section class="admin-gate-card">
+        <h1>Hortsoc Admin</h1>
+        <p>Log in with GitHub to edit the website.</p>
+        <button type="button" class="admin-login-button">Login with GitHub</button>
+        <p class="admin-status">You will continue via Netlify Identity.</p>
+      </section>
+    </main>
+
     <script is:inline>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", function (user) {
-          if (!user) {
-            window.netlifyIdentity.on("login", function () {
-              document.location.reload();
-            });
+      (() => {
+        const gate = document.querySelector(".admin-gate");
+        const loginButton = document.querySelector(".admin-login-button");
+        const statusNode = document.querySelector(".admin-status");
+        let cmsLoaded = false;
+
+        function setStatus(message) {
+          if (statusNode) {
+            statusNode.textContent = message;
+          }
+        }
+
+        function loadCms() {
+          if (cmsLoaded) {
+            return;
+          }
+
+          cmsLoaded = true;
+          gate.classList.add("is-hidden");
+
+          const script = document.createElement("script");
+          script.src = "https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js";
+          document.body.appendChild(script);
+        }
+
+        if (!window.netlifyIdentity) {
+          setStatus("Netlify Identity failed to load.");
+          return;
+        }
+
+        loginButton?.addEventListener("click", () => {
+          window.netlifyIdentity.open("login");
+        });
+
+        window.netlifyIdentity.on("init", (user) => {
+          if (user) {
+            loadCms();
+            return;
+          }
+
+          const url = new URL(window.location.href);
+          if (url.searchParams.has("invite_token") || url.searchParams.has("confirmation_token") || url.searchParams.has("recovery_token")) {
+            window.netlifyIdentity.open();
           }
         });
-      }
+
+        window.netlifyIdentity.on("login", () => {
+          loadCms();
+          window.netlifyIdentity.close();
+        });
+
+        window.netlifyIdentity.on("logout", () => {
+          window.location.reload();
+        });
+
+        window.netlifyIdentity.on("error", (error) => {
+          setStatus(error?.message ?? "Authentication failed.");
+        });
+      })();
     </script>
   </body>
 </html>
