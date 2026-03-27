@@ -8,7 +8,6 @@ const title = "Hortsoc Admin";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <style is:global>
       :root {
         color-scheme: light;
@@ -94,11 +93,50 @@ const title = "Hortsoc Admin";
         const loginButton = document.querySelector(".admin-login-button");
         const statusNode = document.querySelector(".admin-status");
         let cmsLoaded = false;
+        let identityReady = false;
 
         function setStatus(message) {
           if (statusNode) {
             statusNode.textContent = message;
           }
+        }
+
+        function initializeIdentity() {
+          if (identityReady || !window.netlifyIdentity) {
+            return;
+          }
+
+          identityReady = true;
+          setStatus("You will continue via Netlify Identity.");
+
+          loginButton?.addEventListener("click", () => {
+            window.netlifyIdentity.open("login");
+          });
+
+          window.netlifyIdentity.on("init", (user) => {
+            if (user) {
+              loadCms();
+              return;
+            }
+
+            const url = new URL(window.location.href);
+            if (url.searchParams.has("invite_token") || url.searchParams.has("confirmation_token") || url.searchParams.has("recovery_token")) {
+              window.netlifyIdentity.open();
+            }
+          });
+
+          window.netlifyIdentity.on("login", () => {
+            loadCms();
+            window.netlifyIdentity.close();
+          });
+
+          window.netlifyIdentity.on("logout", () => {
+            window.location.reload();
+          });
+
+          window.netlifyIdentity.on("error", (error) => {
+            setStatus(error?.message ?? "Authentication failed.");
+          });
         }
 
         function loadCms() {
@@ -114,39 +152,17 @@ const title = "Hortsoc Admin";
           document.body.appendChild(script);
         }
 
-        if (!window.netlifyIdentity) {
+        setStatus("Loading Netlify Identity…");
+
+        const identityScript = document.createElement("script");
+        identityScript.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+        identityScript.onload = () => {
+          initializeIdentity();
+        };
+        identityScript.onerror = () => {
           setStatus("Netlify Identity failed to load.");
-          return;
-        }
-
-        loginButton?.addEventListener("click", () => {
-          window.netlifyIdentity.open("login");
-        });
-
-        window.netlifyIdentity.on("init", (user) => {
-          if (user) {
-            loadCms();
-            return;
-          }
-
-          const url = new URL(window.location.href);
-          if (url.searchParams.has("invite_token") || url.searchParams.has("confirmation_token") || url.searchParams.has("recovery_token")) {
-            window.netlifyIdentity.open();
-          }
-        });
-
-        window.netlifyIdentity.on("login", () => {
-          loadCms();
-          window.netlifyIdentity.close();
-        });
-
-        window.netlifyIdentity.on("logout", () => {
-          window.location.reload();
-        });
-
-        window.netlifyIdentity.on("error", (error) => {
-          setStatus(error?.message ?? "Authentication failed.");
-        });
+        };
+        document.head.appendChild(identityScript);
       })();
     </script>
   </body>
