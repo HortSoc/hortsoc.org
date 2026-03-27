@@ -1,5 +1,6 @@
 ---
 const title = "Hortsoc Admin";
+const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
 ---
 
 <!doctype html>
@@ -72,6 +73,11 @@ const title = "Hortsoc Admin";
         font-size: 0.95rem;
       }
 
+      .admin-help-link {
+        color: #2d333b;
+        font-weight: 700;
+      }
+
       .admin-gate.is-hidden {
         display: none;
       }
@@ -84,11 +90,17 @@ const title = "Hortsoc Admin";
         <p>Log in with GitHub to edit the website.</p>
         <button type="button" class="admin-login-button">Login with GitHub</button>
         <p class="admin-status">You will continue via Netlify Identity.</p>
+        <p>
+          Editors can also open
+          <a class="admin-help-link" href={netlifyAdminUrl}>{netlifyAdminUrl}</a>
+          directly.
+        </p>
       </section>
     </main>
 
     <script is:inline>
       (() => {
+        const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
         const gate = document.querySelector(".admin-gate");
         const loginButton = document.querySelector(".admin-login-button");
         const statusNode = document.querySelector(".admin-status");
@@ -150,6 +162,15 @@ const title = "Hortsoc Admin";
           const script = document.createElement("script");
           script.src = "https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js";
           document.body.appendChild(script);
+        }
+
+        const isNetlifyAdminHost = window.location.origin === "https://hortsoc.netlify.app";
+        if (!isNetlifyAdminHost) {
+          loginButton?.addEventListener("click", () => {
+            window.location.href = netlifyAdminUrl;
+          });
+          setStatus("CMS login is hosted on Netlify. Use the button above to continue.");
+          return;
         }
 
         setStatus("Loading Netlify Identity…");

@@ -3,8 +3,8 @@ backend:
   branch: main
 
 local_backend: true
-site_url: https://HortSoc.github.io/hortsoc.org
-display_url: https://HortSoc.github.io/hortsoc.org
+site_url: https://hortsoc.github.io/hortsoc.org
+display_url: https://hortsoc.github.io/hortsoc.org
 media_folder: public/media/uploads
 public_folder: /media/uploads
 publish_mode: editorial_workflow
