@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: HortSoc/hortsoc.org
+  name: git-gateway
   branch: main
 
 local_backend: true
