@@ -5,8 +5,8 @@ backend:
 local_backend: true
 site_url: https://hortsoc.github.io/hortsoc.org
 display_url: https://hortsoc.github.io/hortsoc.org
-media_folder: public/media/uploads
-public_folder: /media/uploads
+media_folder: public/media
+public_folder: /media
 publish_mode: editorial_workflow
 
 slug:
@@ -211,7 +211,7 @@ collections:
                 required: false
                 collapsed: true
                 fields:
-                  - { label: Source, name: src, widget: string, required: false }
+                  - { label: Source, name: src, widget: image, required: false }
                   - { label: Alt Text, name: alt, widget: string, required: false }
 
   - name: navigation
@@ -310,7 +310,7 @@ collections:
                 name: masthead_banner
                 widget: object
                 fields:
-                  - { label: Current Path, name: current_path, widget: string }
+                  - { label: Current Path, name: current_path, widget: image }
                   - { label: Source URL, name: source_url, widget: string }
                   - { label: Alt, name: alt, widget: string }
                   - { label: Status, name: status, widget: string }
@@ -319,7 +319,7 @@ collections:
                 name: home_hero
                 widget: object
                 fields:
-                  - { label: Current Path, name: current_path, widget: string }
+                  - { label: Current Path, name: current_path, widget: image }
                   - { label: Source URL, name: source_url, widget: string }
                   - { label: Alt, name: alt, widget: string }
                   - { label: Status, name: status, widget: string }
@@ -340,7 +340,7 @@ collections:
                     name: about
                     widget: object
                     fields:
-                      - { label: Current Path, name: current_path, widget: string }
+                      - { label: Current Path, name: current_path, widget: image }
                       - { label: Source URL, name: source_url, widget: string }
                       - { label: Alt, name: alt, widget: string }
                       - { label: Status, name: status, widget: string }
@@ -349,7 +349,7 @@ collections:
                     name: membership
                     widget: object
                     fields:
-                      - { label: Current Path, name: current_path, widget: string }
+                      - { label: Current Path, name: current_path, widget: image }
                       - { label: Source URL, name: source_url, widget: string }
                       - { label: Alt, name: alt, widget: string }
                       - { label: Status, name: status, widget: string }
@@ -358,7 +358,7 @@ collections:
                     name: whats_on
                     widget: object
                     fields:
-                      - { label: Current Path, name: current_path, widget: string }
+                      - { label: Current Path, name: current_path, widget: image }
                       - { label: Source URL, name: source_url, widget: string }
                       - { label: Alt, name: alt, widget: string }
                       - { label: Status, name: status, widget: string }
@@ -375,7 +375,7 @@ collections:
                     name: image
                     widget: object
                     fields:
-                      - { label: Current Path, name: current_path, widget: string }
+                      - { label: Current Path, name: current_path, widget: image }
                       - { label: Source URL, name: source_url, widget: string }
                       - { label: Alt, name: alt, widget: string }
                       - { label: Status, name: status, widget: string }
@@ -388,7 +388,7 @@ collections:
                     name: image
                     widget: object
                     fields:
-                      - { label: Current Path, name: current_path, widget: string }
+                      - { label: Current Path, name: current_path, widget: image }
                       - { label: Source URL, name: source_url, widget: string }
                       - { label: Alt, name: alt, widget: string }
                       - { label: Status, name: status, widget: string }
@@ -403,7 +403,7 @@ collections:
                 name: home_poster
                 widget: object
                 fields:
-                  - { label: Current Path, name: current_path, widget: string }
+                  - { label: Current Path, name: current_path, widget: image }
                   - { label: Source URL, name: source_url, widget: string }
                   - { label: Alt, name: alt, widget: string }
                   - { label: Status, name: status, widget: string }
