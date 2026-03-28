@@ -9,14 +9,14 @@
   "siteAssetPlan": {
     "inventory_notes": "Derived from the live WordPress shell on 2026-03-23. The corrective shell pass ingests the centered masthead, homepage banner, the three homepage feature images, the homepage announcement image, and the current plant-sale poster locally so the shell no longer depends on the legacy host for its core structure.",
     "masthead_banner": {
-      "current_path": "/media/branding/celebrating-140-years.jpg",
+      "current_path": "/media/site/branding/celebrating-140-years.jpg",
       "source_url": "https://hortsoc.org/wp-content/uploads/2024/02/cropped-celebrating-140-years.jpg?w=314",
       "alt": "Celebrating 140 years banner",
       "status": "ingested_local",
       "notes": "Used as the first-pass masthead image because it is the key live-site banner asset."
     },
     "home_hero": {
-      "current_path": "/media/heroes/home-banner.jpg",
+      "current_path": "/media/site/heroes/home/home-banner.jpg",
       "source_url": "https://hortsoc.org/wp-content/uploads/2016/09/hort_soc.jpg",
       "alt": "Horticultural society garden border hero image",
       "status": "ingested_local",
@@ -30,21 +30,21 @@
     },
     "page_heroes": {
       "about": {
-        "current_path": "/media/heroes/about/1930-committee3.png",
+        "current_path": "/media/site/heroes/pages/about/1930-committee3.png",
         "source_url": "https://hortsoc.org/wp-content/uploads/2016/09/1930-committee3.png",
         "alt": "Historic Stoke Poges, Wexham and Fulmer Horticultural Society committee photograph",
         "status": "ingested_local",
         "notes": "Derived from the WordPress export via the About page featured image (_thumbnail_id 36) and now ingested locally as part of the first reviewed hero-asset batch."
       },
       "membership": {
-        "current_path": "/media/heroes/membership/members.png",
+        "current_path": "/media/site/heroes/pages/membership/members.png",
         "source_url": "https://hortsoc.org/wp-content/uploads/2016/11/members1.jpg",
         "alt": "Visitors and members at the horticultural society annual show",
         "status": "ingested_local",
         "notes": "Dedicated high-resolution membership hero installed locally so the rebuilt Membership page does not upscale the smaller homepage card image."
       },
       "whats_on": {
-        "current_path": "/media/heroes/whats-on/band.jpg",
+        "current_path": "/media/site/heroes/pages/whats-on/band.jpg",
         "source_url": "https://hortsoc.org/wp-content/uploads/2016/11/band.jpg",
         "alt": "Band performing at a horticultural society event",
         "status": "ingested_local",
@@ -57,7 +57,7 @@
         "href": "/membership/",
         "summary": "Sign up for membership today for a list of great benefits.",
         "image": {
-          "current_path": "/media/home/membership.jpg",
+          "current_path": "/media/site/home/cards/membership.jpg",
           "source_url": "https://hortsocorg.files.wordpress.com/2016/11/members1.jpg",
           "alt": "Membership planting image",
           "status": "ingested_local"
@@ -68,7 +68,7 @@
         "href": "/whats-on/",
         "summary": "You can find all of the latest events here.",
         "image": {
-          "current_path": "/media/home/whats-on.jpg",
+          "current_path": "/media/site/home/cards/whats-on.jpg",
           "source_url": "https://hortsocorg.files.wordpress.com/2016/11/band1.jpg",
           "alt": "What's On event image",
           "status": "ingested_local"
@@ -79,7 +79,7 @@
         "href": "/gallery/",
         "summary": "Check out a selection of photos from past events here.",
         "image": {
-          "current_path": "/media/home/gallery.jpg",
+          "current_path": "/media/site/home/cards/gallery.jpg",
           "source_url": "https://hortsocorg.files.wordpress.com/2016/11/marrows.jpg",
           "alt": "Gallery image from a past event",
           "status": "ingested_local"
@@ -89,7 +89,7 @@
     "home_spotlight": {
       "title": "Community highlights",
       "image": {
-        "current_path": "/media/home/facebook-award.jpg",
+        "current_path": "/media/site/home/spotlight/facebook-award.jpg",
         "source_url": "https://hortsoc.org/wp-content/uploads/2016/11/facebook-1_1.jpg",
         "alt": "Queen's Award for Voluntary Service announcement graphic",
         "status": "ingested_local"
@@ -101,7 +101,7 @@
       "body": "Of interest to 16-30 year olds, particularly students and those involved in a horticultural project. Please see What's On for further information."
     },
     "home_poster": {
-      "current_path": "/media/home/plant-sale-poster.png",
+      "current_path": "/media/site/home/posters/plant-sale-poster.png",
       "source_url": "https://hortsocorg.wordpress.com/wp-content/uploads/2019/02/2026-plant-sale-poster.png?w=620",
       "alt": "Plant Sale on 9th May, 10am at Stoke Poges Village Hall",
       "status": "ingested_local",

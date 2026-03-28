@@ -5,8 +5,8 @@ backend:
 local_backend: true
 site_url: https://hortsoc.github.io/hortsoc.org
 display_url: https://hortsoc.github.io/hortsoc.org
-media_folder: public/media
-public_folder: /media
+media_folder: public/media/uploads
+public_folder: /media/uploads
 publish_mode: editorial_workflow
 
 slug:
@@ -211,7 +211,7 @@ collections:
                 required: false
                 collapsed: true
                 fields:
-                  - { label: Source, name: src, widget: image, required: false }
+                  - { label: Source, name: src, widget: image, required: false, media_folder: "/public/media/blog", public_folder: "/media/blog" }
                   - { label: Alt Text, name: alt, widget: string, required: false }
 
   - name: navigation
@@ -310,7 +310,7 @@ collections:
                 name: masthead_banner
                 widget: object
                 fields:
-                  - { label: Current Path, name: current_path, widget: image }
+                  - { label: Current Path, name: current_path, widget: image, media_folder: "/public/media/site/branding", public_folder: "/media/site/branding" }
                   - { label: Source URL, name: source_url, widget: string }
                   - { label: Alt, name: alt, widget: string }
                   - { label: Status, name: status, widget: string }
@@ -319,7 +319,7 @@ collections:
                 name: home_hero
                 widget: object
                 fields:
-                  - { label: Current Path, name: current_path, widget: image }
+                  - { label: Current Path, name: current_path, widget: image, media_folder: "/public/media/site/heroes/home", public_folder: "/media/site/heroes/home" }
                   - { label: Source URL, name: source_url, widget: string }
                   - { label: Alt, name: alt, widget: string }
                   - { label: Status, name: status, widget: string }
@@ -340,7 +340,7 @@ collections:
                     name: about
                     widget: object
                     fields:
-                      - { label: Current Path, name: current_path, widget: image }
+                      - { label: Current Path, name: current_path, widget: image, media_folder: "/public/media/site/heroes/pages/about", public_folder: "/media/site/heroes/pages/about" }
                       - { label: Source URL, name: source_url, widget: string }
                       - { label: Alt, name: alt, widget: string }
                       - { label: Status, name: status, widget: string }
@@ -349,7 +349,7 @@ collections:
                     name: membership
                     widget: object
                     fields:
-                      - { label: Current Path, name: current_path, widget: image }
+                      - { label: Current Path, name: current_path, widget: image, media_folder: "/public/media/site/heroes/pages/membership", public_folder: "/media/site/heroes/pages/membership" }
                       - { label: Source URL, name: source_url, widget: string }
                       - { label: Alt, name: alt, widget: string }
                       - { label: Status, name: status, widget: string }
@@ -358,7 +358,7 @@ collections:
                     name: whats_on
                     widget: object
                     fields:
-                      - { label: Current Path, name: current_path, widget: image }
+                      - { label: Current Path, name: current_path, widget: image, media_folder: "/public/media/site/heroes/pages/whats-on", public_folder: "/media/site/heroes/pages/whats-on" }
                       - { label: Source URL, name: source_url, widget: string }
                       - { label: Alt, name: alt, widget: string }
                       - { label: Status, name: status, widget: string }
@@ -375,7 +375,7 @@ collections:
                     name: image
                     widget: object
                     fields:
-                      - { label: Current Path, name: current_path, widget: image }
+                      - { label: Current Path, name: current_path, widget: image, media_folder: "/public/media/site/home/cards", public_folder: "/media/site/home/cards" }
                       - { label: Source URL, name: source_url, widget: string }
                       - { label: Alt, name: alt, widget: string }
                       - { label: Status, name: status, widget: string }
@@ -388,7 +388,7 @@ collections:
                     name: image
                     widget: object
                     fields:
-                      - { label: Current Path, name: current_path, widget: image }
+                      - { label: Current Path, name: current_path, widget: image, media_folder: "/public/media/site/home/spotlight", public_folder: "/media/site/home/spotlight" }
                       - { label: Source URL, name: source_url, widget: string }
                       - { label: Alt, name: alt, widget: string }
                       - { label: Status, name: status, widget: string }
@@ -403,7 +403,7 @@ collections:
                 name: home_poster
                 widget: object
                 fields:
-                  - { label: Current Path, name: current_path, widget: image }
+                  - { label: Current Path, name: current_path, widget: image, media_folder: "/public/media/site/home/posters", public_folder: "/media/site/home/posters" }
                   - { label: Source URL, name: source_url, widget: string }
                   - { label: Alt, name: alt, widget: string }
                   - { label: Status, name: status, widget: string }

@@ -8,7 +8,7 @@ notes: Converted from a Gutenberg-backed WordPress page. Block comments, empty p
 
 ## 2026
 
-![Plant Sale on 9th May, 10am at Stoke Poges Village Hall](/media/home/plant-sale-poster.png)
+![Plant Sale on 9th May, 10am at Stoke Poges Village Hall](/media/site/home/posters/plant-sale-poster.png)
 
 ---
 
