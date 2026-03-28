@@ -113,6 +113,11 @@ const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
           }
         }
 
+        function reloadNetlifyAdmin() {
+          const url = new URL(netlifyAdminUrl);
+          window.location.replace(url.toString());
+        }
+
         function initializeIdentity() {
           if (identityReady || !window.netlifyIdentity) {
             return;
@@ -138,8 +143,11 @@ const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
           });
 
           window.netlifyIdentity.on("login", () => {
-            loadCms();
             window.netlifyIdentity.close();
+            setStatus("Login complete. Loading CMS…");
+            window.setTimeout(() => {
+              reloadNetlifyAdmin();
+            }, 50);
           });
 
           window.netlifyIdentity.on("logout", () => {
