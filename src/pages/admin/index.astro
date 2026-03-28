@@ -104,8 +104,6 @@ const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
         const gate = document.querySelector(".admin-gate");
         const loginButton = document.querySelector(".admin-login-button");
         const statusNode = document.querySelector(".admin-status");
-        let cmsLoaded = false;
-        let identityReady = false;
 
         function setStatus(message) {
           if (statusNode) {
@@ -113,63 +111,12 @@ const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
           }
         }
 
-        function reloadNetlifyAdmin() {
-          const url = new URL(netlifyAdminUrl);
-          window.location.replace(url.toString());
-        }
-
-        function initializeIdentity() {
-          if (identityReady || !window.netlifyIdentity) {
-            return;
-          }
-
-          identityReady = true;
-          setStatus("You will continue via Netlify Identity.");
-
-          loginButton?.addEventListener("click", () => {
-            window.netlifyIdentity.open("login");
-          });
-
-          window.netlifyIdentity.on("init", (user) => {
-            if (user) {
-              loadCms();
-              return;
-            }
-
-            const url = new URL(window.location.href);
-            if (url.searchParams.has("invite_token") || url.searchParams.has("confirmation_token") || url.searchParams.has("recovery_token")) {
-              window.netlifyIdentity.open();
-            }
-          });
-
-          window.netlifyIdentity.on("login", () => {
-            window.netlifyIdentity.close();
-            setStatus("Login complete. Loading CMS…");
-            window.setTimeout(() => {
-              reloadNetlifyAdmin();
-            }, 50);
-          });
-
-          window.netlifyIdentity.on("logout", () => {
-            window.location.reload();
-          });
-
-          window.netlifyIdentity.on("error", (error) => {
-            setStatus(error?.message ?? "Authentication failed.");
-          });
-        }
-
-        function loadCms() {
-          if (cmsLoaded) {
-            return;
-          }
-
-          cmsLoaded = true;
-          gate.classList.add("is-hidden");
-
+        function loadScript(src, onload, onerror) {
           const script = document.createElement("script");
-          script.src = "https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js";
-          document.body.appendChild(script);
+          script.src = src;
+          script.onload = onload ?? null;
+          script.onerror = onerror ?? null;
+          document.head.appendChild(script);
         }
 
         const isNetlifyAdminHost = window.location.origin === "https://hortsoc.netlify.app";
@@ -181,17 +128,39 @@ const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
           return;
         }
 
-        setStatus("Loading Netlify Identity…");
+        gate.classList.add("is-hidden");
 
-        const identityScript = document.createElement("script");
-        identityScript.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
-        identityScript.onload = () => {
-          initializeIdentity();
-        };
-        identityScript.onerror = () => {
-          setStatus("Netlify Identity failed to load.");
-        };
-        document.head.appendChild(identityScript);
+        const loadingCard = document.createElement("main");
+        loadingCard.className = "admin-gate";
+        loadingCard.innerHTML = `
+          <section class="admin-gate-card">
+            <h1>Hortsoc Admin</h1>
+            <p class="admin-status">Loading CMS…</p>
+          </section>
+        `;
+        document.body.appendChild(loadingCard);
+
+        loadScript(
+          "https://identity.netlify.com/v1/netlify-identity-widget.js",
+          () => {
+            loadScript(
+              "https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js",
+              null,
+              () => {
+                const node = loadingCard.querySelector(".admin-status");
+                if (node) {
+                  node.textContent = "Decap CMS failed to load.";
+                }
+              },
+            );
+          },
+          () => {
+            const node = loadingCard.querySelector(".admin-status");
+            if (node) {
+              node.textContent = "Netlify Identity failed to load.";
+            }
+          },
+        );
       })();
     </script>
   </body>
