@@ -23,8 +23,10 @@ The private build repo is the main workbench. When source changes are ready for 
 
 ## GitHub Pages
 
-This repository is configured for GitHub Pages deployment via GitHub Actions.
+This repository is configured to build on `main` and publish the generated site to the `gh-pages` branch.
 
-- Set `Settings > Pages > Source` to `GitHub Actions`.
+- Set `Settings > Pages > Source` to `Deploy from a branch`.
+- Set the publishing branch to `gh-pages` and the folder to `/(root)`.
 - Push to `main` when you want a new Pages deploy.
-- For `HortSoc/hortsoc.org`, the repo-site URL is `https://HortSoc.github.io/hortsoc.org/` until a custom domain is attached.
+- The workflow builds the site and commits the generated output into `gh-pages`.
+- The production custom domain is `https://hortsoc.org/`.

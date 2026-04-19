@@ -4,8 +4,8 @@ const customDomainSite = "https://hortsoc.org";
 const repository = process.env.GITHUB_REPOSITORY;
 const repositoryOwner = process.env.GITHUB_REPOSITORY_OWNER ?? repository?.split("/")[0];
 const repositoryName = repository?.split("/")[1];
-const isGitHubPagesBuild = process.env.GITHUB_ACTIONS === "true" && Boolean(repositoryOwner && repositoryName);
-const siteBase = isGitHubPagesBuild ? `/${repositoryName}` : "/";
+const useRepositoryBase = process.env.GITHUB_PAGES_REPO_BASE === "true" && Boolean(repositoryOwner && repositoryName);
+const siteBase = useRepositoryBase ? `/${repositoryName}` : "/";
 
 function prefixRootRelativeMarkdownUrls(base) {
   const normalizedBase = !base || base === "/" ? "/" : `/${base.replace(/^\/+|\/+$/g, "")}`;
@@ -51,8 +51,8 @@ function visitTree(node, visitor) {
 }
 
 export default defineConfig({
-  site: isGitHubPagesBuild ? `https://${repositoryOwner}.github.io` : customDomainSite,
-  base: isGitHubPagesBuild ? `/${repositoryName}` : undefined,
+  site: useRepositoryBase ? `https://${repositoryOwner}.github.io` : customDomainSite,
+  base: useRepositoryBase ? `/${repositoryName}` : undefined,
   markdown: {
     rehypePlugins: [prefixRootRelativeMarkdownUrls(siteBase)],
   },
