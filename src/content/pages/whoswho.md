@@ -1,5 +1,6 @@
 ---
 title: "Who's Who"
+status: published
 path: "/whoswho/"
 source_url: "https://hortsoc.org/whoswho/"
 migration_status: "migrated"

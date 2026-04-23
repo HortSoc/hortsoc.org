@@ -1,5 +1,6 @@
 ---
 title: Membership
+status: published
 path: /membership/
 source_url: https://hortsoc.org/membership/
 migration_status: migrated

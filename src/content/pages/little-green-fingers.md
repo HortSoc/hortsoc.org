@@ -1,6 +1,13 @@
 ---
 title: "LITTLE GREEN FINGERS"
 path: "/2017/08/09/little-green-fingers/"
+date: "2017-08-09T20:47:40Z"
+categories:
+  - Children
+excerpt: Young gardeners’ tips and activities, from sowing annuals and wildflowers to easy windowsill crops like cress.
+featuredImage:
+  src: /media/blog/2017/little-green-fingers/img_0556.jpg
+  alt: Little Green Fingers gardening activity
 source_url: "https://hortsoc.org/2017/08/09/little-green-fingers/"
 migration_status: "migrated"
 notes: "Migrated from a legacy post body that mixed headings, images, and div-based editor markup. The wording is preserved but the structure has been regularized into Markdown."

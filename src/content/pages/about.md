@@ -1,11 +1,10 @@
 ---
-title: About - TEST
+title: About
+status: published
 path: /about/
 source_url: https://hortsoc.org/about/
 migration_status: migrated
-notes: Converted conservatively from the published WordPress page body. Legacy
-  editor classes and inline presentation markup were removed while preserving
-  headings, paragraphs, and quoted society objects text.
+notes: Converted conservatively from the published WordPress page body. Legacy editor classes and inline presentation markup were removed while preserving headings, paragraphs, and quoted society objects text.
 ---
 
 ## The History and Aims of the Society

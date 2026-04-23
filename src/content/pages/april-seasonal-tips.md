@@ -1,6 +1,13 @@
 ---
 title: OCTOBER Seasonal Tips
 path: /2020/01/01/april-seasonal-tips/
+date: "2020-01-01T18:56:20Z"
+categories:
+  - Uncategorised
+excerpt: Seasonal October gardening notes covering lawns, bulbs, hedges, autumn fruit, and greenhouse jobs.
+featuredImage:
+  src: /media/blog/2020/april-seasonal-tips/vegbox_2_-28_2048x.jpg
+  alt: Autumn vegetable harvest
 source_url: https://hortsoc.org/2020/01/01/april-seasonal-tips/
 migration_status: migrated
 notes: Converted from a Gutenberg-backed WordPress post. The leading media-text image was preserved as a direct image reference, and block comments plus empty placeholder paragraphs were removed.

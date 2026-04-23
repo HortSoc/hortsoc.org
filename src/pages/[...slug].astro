@@ -4,6 +4,7 @@ import SitePageView from "../components/SitePageView.astro";
 import BlogFilterView from "../components/BlogFilterView.astro";
 import { getPageGallerySections } from "../content/page-galleries.mjs";
 import {
+  blogPosts,
   blogArchiveFilters,
   blogCategoryFilters,
   getBlogArchiveFilter,
@@ -16,14 +17,57 @@ import { pathToSlugParams, sitePages } from "../content/site-pages.mjs";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 export function getStaticPaths() {
+  const slugify = (value) => value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  const cmsPageModuleToRoute = ({ filePath, module }) => {
+    if (module.frontmatter.date) {
+      return null;
+    }
+
+    if (module.frontmatter.status !== "published") {
+      return null;
+    }
+
+    const slug = slugify(filePath.split("/").at(-1).replace(/\.md$/, ""));
+    const pagePath = module.frontmatter.path ?? `/${slug}/`;
+
+    return {
+      module,
+      page: {
+        title: module.frontmatter.title,
+        path: pagePath,
+        migration_status: "cms-created",
+      },
+    };
+  };
+
   const migratedPageModules = import.meta.glob("../content/pages/*.md", { eager: true });
   const migratedPagesByPath = new Map(
     Object.values(migratedPageModules).map((module) => [module.frontmatter.path, module]),
   );
+  const visibleSitePages = sitePages.filter((page) => migratedPagesByPath.get(page.path)?.frontmatter.status !== "draft");
+  const routedPagePaths = new Set(visibleSitePages.map((page) => page.path));
+  const cmsCreatedPages = Object.entries(migratedPageModules)
+    .map(([filePath, module]) => cmsPageModuleToRoute({ filePath, module }))
+    .filter((entry) => entry && !routedPagePaths.has(entry.page.path))
+    .filter(Boolean);
+  const cmsCreatedPagesByPath = new Map(cmsCreatedPages.map(({ page, module }) => [page.path, module]));
+  const cmsCreatedBlogPages = blogPosts
+    .filter((post) => !routedPagePaths.has(post.path))
+    .map((post) => ({
+      title: post.title,
+      path: post.path,
+      migration_status: "cms-created",
+    }));
+  const routedPages = visibleSitePages.concat(cmsCreatedBlogPages, cmsCreatedPages.map(({ page }) => page));
 
-  return sitePages.filter((page) => page.path !== "/").map((page) => ({
+  return routedPages.filter((page) => page.path !== "/").map((page) => ({
     params: { slug: pathToSlugParams(page.path) },
-    props: { page, migratedPage: migratedPagesByPath.get(page.path) ?? null },
+    props: { page, migratedPage: migratedPagesByPath.get(page.path) ?? cmsCreatedPagesByPath.get(page.path) ?? null },
   })).concat(
     blogCategoryFilters.map((category) => ({
       params: { slug: pathToSlugParams(category.path) },

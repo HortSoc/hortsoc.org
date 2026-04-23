@@ -1,6 +1,13 @@
 ---
 title: "Queen's Award for Voluntary Service"
 path: "/2019/06/03/963/"
+date: "2019-06-03T06:59:16Z"
+categories:
+  - Uncategorised
+excerpt: The Society is honoured with the Queen’s Award for Voluntary Service, recognising generations of community horticultural work.
+featuredImage:
+  src: /media/site/home/spotlight/facebook-award.jpg
+  alt: Queen's Award for Voluntary Service graphic
 source_url: "https://hortsoc.org/2019/06/03/963/"
 migration_status: "migrated"
 notes: "The WordPress source record had no reliable title. This title is inferred conservatively from the opening article topic, while the body text is preserved from the export."

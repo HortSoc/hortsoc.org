@@ -1,5 +1,6 @@
 ---
 title: CONTACTS
+status: published
 path: /contacts/
 source_url: https://hortsoc.org/contacts/
 migration_status: migrated

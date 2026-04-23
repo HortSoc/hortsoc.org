@@ -1,5 +1,6 @@
 ---
 title: Schools Liaison
+status: published
 path: /schools-liaison/
 source_url: https://hortsoc.org/schools-liaison/
 migration_status: migrated

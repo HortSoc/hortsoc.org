@@ -1,6 +1,10 @@
 ---
 title: Metaldehyde slug pellets banned
 path: /2019/02/11/metaldehyde-slug-pellets-banned/
+date: "2019-02-11T15:08:22Z"
+categories:
+  - Uncategorised
+excerpt: A gardening advisory note on the ban on metaldehyde slug pellets and safer alternatives for controlling slugs and snails.
 source_url: https://hortsoc.org/2019/02/11/metaldehyde-slug-pellets-banned/
 migration_status: migrated
 notes: Converted conservatively from the published WordPress post body. Empty spacer entities were removed while preserving the advisory structure and emphasis.

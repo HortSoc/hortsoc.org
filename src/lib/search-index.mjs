@@ -14,12 +14,20 @@ export function getSearchDocument(pathname) {
 
 function buildSearchDocuments() {
   const markdownFiles = readdirSync(contentDirectory).filter((entry) => entry.endsWith(".md")).sort();
-  const documents = markdownFiles
+  const migratedDocuments = markdownFiles
     .map((fileName) => {
       const absolutePath = path.join(contentDirectory, fileName);
       const source = readFileSync(absolutePath, "utf8");
       const parsed = parseMarkdownFile(source);
-      const route = parsed.frontmatter.path;
+      if (parsed.frontmatter.status === "draft") {
+        return null;
+      }
+
+      const fileSlug = path.basename(fileName, path.extname(fileName));
+      const route =
+        parsed.frontmatter.path ??
+        blogPostPathFromDateAndSlug({ date: parsed.frontmatter.date, slug: fileSlug }) ??
+        (parsed.frontmatter.status === "published" ? `/${slugify(fileSlug)}/` : null);
 
       if (!route) {
         return null;
@@ -47,7 +55,28 @@ function buildSearchDocuments() {
     })
     .filter(Boolean);
 
-  return documents.sort((left, right) => left.title.localeCompare(right.title));
+  return migratedDocuments.sort((left, right) => left.title.localeCompare(right.title));
+}
+
+function blogPostPathFromDateAndSlug({ date, slug }) {
+  if (!date || !slug) {
+    return null;
+  }
+
+  const dateParts = date.slice(0, 10).split("-");
+  if (dateParts.length !== 3 || dateParts.some((part) => !part)) {
+    return null;
+  }
+
+  const [year, month, day] = dateParts;
+  return `/${year}/${month}/${day}/${slugify(slug)}/`;
+}
+
+function slugify(value) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 function parseMarkdownFile(source) {

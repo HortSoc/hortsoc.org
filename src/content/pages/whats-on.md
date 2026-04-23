@@ -1,5 +1,6 @@
 ---
 title: What's On
+status: published
 path: /whats-on/
 source_url: https://hortsoc.org/whats-on/
 migration_status: migrated

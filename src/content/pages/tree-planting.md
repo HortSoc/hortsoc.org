@@ -1,5 +1,6 @@
 ---
 title: "Tree Planting"
+status: published
 path: "/tree-planting/"
 source_url: "https://hortsoc.org/tree-planting/"
 migration_status: "migrated"

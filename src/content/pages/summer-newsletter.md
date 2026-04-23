@@ -1,6 +1,10 @@
 ---
 title: The 127th Annual Show
 path: /2017/07/01/summer-newsletter/
+date: "2017-07-01T09:23:25Z"
+categories:
+  - Newsletter
+excerpt: An update on the Annual Show, with the date, schedule timing, children’s classes, and a call for volunteers.
 source_url: https://hortsoc.org/2017/07/01/summer-newsletter/
 migration_status: migrated
 notes: Converted conservatively from the published WordPress post body. Preserved the volunteer call and contact details, and dropped only empty spacing markup and the trailing horizontal rule.

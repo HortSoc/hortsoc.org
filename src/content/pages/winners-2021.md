@@ -1,5 +1,6 @@
 ---
 title: "Winners 2021"
+status: published
 path: "/winners-2021/"
 source_url: "https://hortsoc.org/winners-2021/"
 migration_status: "migrated"

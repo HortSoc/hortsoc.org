@@ -1,6 +1,7 @@
 ---
 const title = "Hortsoc Admin";
-const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
+const buildRepoCmsUrl = "https://app.pagescms.org/hortsoc/hortsoc.org-build/codex%2Fpages-cms";
+const publicRepoCmsUrl = "https://app.pagescms.org/hortsoc/hortsoc.org";
 ---
 
 <!doctype html>
@@ -48,7 +49,8 @@ const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
         line-height: 1.5;
       }
 
-      .admin-login-button {
+      .admin-login-button,
+      .admin-secondary-link {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -60,11 +62,20 @@ const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
         font: inherit;
         font-weight: 700;
         cursor: pointer;
+        text-decoration: none;
       }
 
       .admin-login-button:hover,
-      .admin-login-button:focus-visible {
+      .admin-login-button:focus-visible,
+      .admin-secondary-link:hover,
+      .admin-secondary-link:focus-visible {
         background: #1f252c;
+      }
+
+      .admin-actions {
+        display: grid;
+        gap: 0.85rem;
+        justify-content: center;
       }
 
       .admin-status {
@@ -78,92 +89,22 @@ const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
         font-weight: 700;
       }
 
-      .admin-gate.is-hidden {
-        display: none;
-      }
     </style>
   </head>
   <body>
     <main class="admin-gate">
       <section class="admin-gate-card">
         <h1>Hortsoc Admin</h1>
-        <p>Log in with GitHub to edit the website.</p>
-        <button type="button" class="admin-login-button">Login with GitHub</button>
-        <p class="admin-status">You will continue via Netlify Identity.</p>
+        <p>Editing now uses Pages CMS. Netlify-hosted Decap admin has been retired.</p>
+        <div class="admin-actions">
+          <a class="admin-login-button" href={publicRepoCmsUrl}>Open Live CMS Repo</a>
+          <a class="admin-secondary-link" href={buildRepoCmsUrl}>Open Build Validation Branch</a>
+        </div>
+        <p class="admin-status">Sign in with GitHub in Pages CMS to continue.</p>
         <p>
-          Editors can also open
-          <a class="admin-help-link" href={netlifyAdminUrl}>{netlifyAdminUrl}</a>
-          directly.
+          Use the live repo for normal editorial work once rollout is complete. The build-repo branch remains the current migration validation workspace.
         </p>
       </section>
     </main>
-
-    <script is:inline>
-      (() => {
-        const netlifyAdminUrl = "https://hortsoc.netlify.app/admin/";
-        const gate = document.querySelector(".admin-gate");
-        const loginButton = document.querySelector(".admin-login-button");
-        const statusNode = document.querySelector(".admin-status");
-
-        function setStatus(message) {
-          if (statusNode) {
-            statusNode.textContent = message;
-          }
-        }
-
-        function loadScript(src, onload, onerror) {
-          const script = document.createElement("script");
-          script.src = src;
-          script.onload = onload ?? null;
-          script.onerror = onerror ?? null;
-          document.head.appendChild(script);
-        }
-
-        const isNetlifyAdminHost = window.location.origin === "https://hortsoc.netlify.app";
-        if (!isNetlifyAdminHost) {
-          loginButton?.addEventListener("click", () => {
-            window.location.href = netlifyAdminUrl;
-          });
-          setStatus("CMS login is hosted on Netlify. Use the button above to continue.");
-          return;
-        }
-
-        gate.classList.add("is-hidden");
-
-        const loadingCard = document.createElement("main");
-        loadingCard.className = "admin-gate";
-        loadingCard.innerHTML = `
-          <section class="admin-gate-card">
-            <h1>Hortsoc Admin</h1>
-            <p class="admin-status">Loading CMS…</p>
-          </section>
-        `;
-        document.body.appendChild(loadingCard);
-
-        loadScript(
-          "https://identity.netlify.com/v1/netlify-identity-widget.js",
-          () => {
-            loadScript(
-              "https://unpkg.com/decap-cms@^3.8.3/dist/decap-cms.js",
-              () => {
-                loadingCard.remove();
-              },
-              () => {
-                const node = loadingCard.querySelector(".admin-status");
-                if (node) {
-                  node.textContent = "Decap CMS failed to load.";
-                }
-              },
-            );
-          },
-          () => {
-            const node = loadingCard.querySelector(".admin-status");
-            if (node) {
-              node.textContent = "Netlify Identity failed to load.";
-            }
-          },
-        );
-      })();
-    </script>
   </body>
 </html>

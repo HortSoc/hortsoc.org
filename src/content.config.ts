@@ -6,10 +6,19 @@ const runtimeOrRemoteImage = z.union([z.string().url(), runtimeAssetPath]);
 const pages = defineCollection({
   schema: z.object({
     title: z.string(),
-    path: z.string(),
-    source_url: z.string().url(),
-    migration_status: z.enum(["migrated", "placeholder", "pending_policy"]),
-    notes: z.string(),
+    path: z.string().optional(),
+    status: z.enum(["draft", "published"]).optional(),
+    source_url: z.string().url().optional(),
+    migration_status: z.enum(["migrated", "placeholder", "pending_policy", "cms-created"]).optional(),
+    notes: z.string().optional(),
+  }),
+});
+
+const blogCategories = defineCollection({
+  schema: z.object({
+    name: z.string(),
+    label: z.string(),
+    description: z.string().optional(),
   }),
 });
 
@@ -57,4 +66,8 @@ const gallery = defineCollection({
   }),
 });
 
-export const collections = { gallery, pages };
+export const collections = {
+  "blog-categories": blogCategories,
+  gallery,
+  pages,
+};

@@ -1,5 +1,6 @@
 ---
 title: Annual Show
+status: published
 path: /annual-show/
 source_url: https://hortsoc.org/annual-show/
 migration_status: migrated
