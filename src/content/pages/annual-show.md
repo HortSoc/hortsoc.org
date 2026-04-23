@@ -4,10 +4,11 @@ status: published
 path: /annual-show/
 source_url: https://hortsoc.org/annual-show/
 migration_status: migrated
-notes: Converted from a Gutenberg-backed WordPress page. Empty spacer paragraphs and block comments were removed; document links, form links, and contact details were preserved.
+notes: Converted from a Gutenberg-backed WordPress page. Empty spacer paragraphs
+  and block comments were removed; document links, form links, and contact
+  details were preserved.
 ---
-
-25thJuly 2026
+25th July 2026
 
 **Celebrating 100 Years of David Attenborough**
 
