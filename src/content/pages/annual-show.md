@@ -18,7 +18,7 @@ notes: Converted from a Gutenberg-backed WordPress page. Empty spacer paragraphs
 
 ### 2026 Show Competition Schedule and Entry Form
 
-2025 **[Show Schedule](/media/documents/annual-show/20250513-schedule-combined-v3.pdf)**. 2026 currently being printed and will be available soon.
+2025 **[Show Schedule](/media/documents/annual-show/20250513-schedule-combined-v3.pdf)**. 2026 The schedule is currently being printed and will be available soon.
 
 2025 **[Show Entry Form](https://docs.google.com/forms/d/e/1FAIpQLSdc1N19CVBOSouRzV0cz9jv4VFSQVoDGJ9u4sxqZ8x0FptJRA/viewform?usp=header)**. 2026 will be available soon.
 
