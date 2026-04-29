@@ -4,16 +4,16 @@ status: published
 path: /membership/
 source_url: https://hortsoc.org/membership/
 migration_status: migrated
-notes: Converted conservatively from the published WordPress page body. Membership pricing, benefits, form link, and contact details were preserved.
+notes: Converted conservatively from the published WordPress page body.
+  Membership pricing, benefits, form link, and contact details were preserved.
 ---
-
 ## Membership Fees and Benefits
 
 Annual Membership runs from 1st August to 31st July.
 
-- GBP 10 for single membership
-- GBP 15 for two persons from the same household
-- GBP 20 for family membership (2 adults and children up to age 18, or 25 if in full-time education)
+- £10 for single membership
+- £15 for two persons from the same household
+- £20 for family membership (2 adults and children up to age 18, or 25 if in full-time education)
 - FREE admission to the Annual Show
 - FREE entry in the scheduled classes
 - 10% discount at Farnham Common Nurseries and Village Plants, Denham (on production of your membership card)
