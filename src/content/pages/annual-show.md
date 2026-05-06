@@ -18,18 +18,17 @@ annual_show:
       year: "2026"
       label: Show Schedule
       file: /media/documents/annual-show/20260502_Schedule for website.pdf
-      note: ""
     entry_form:
-      year: "2025"
+      year: "2026"
       label: Show Entry Form
-      url: https://docs.google.com/forms/d/e/1FAIpQLSdc1N19CVBOSouRzV0cz9jv4VFSQVoDGJ9u4sxqZ8x0FptJRA/viewform?usp=header
-      note: 2026 will be available soon.
+      url: https://docs.google.com/forms/d/e/1FAIpQLSfgqjdw_x1dsLNKw__nw-ZZPQTPqiVJyw1wA_dYPsIfQzgSfQ/viewform?usp=publish-editor
     notes_for_exhibitors:
       label: Notes for Exhibitors
       file: /media/documents/annual-show/notes-for-exhibitors.pdf
   stallholders:
     heading: Stallholder Information
-    intro: Please contact our Honorary Secretary, Liz Tierney, for further information on booking a stall.
+    intro: Please contact our Honorary Secretary, Liz Tierney, for further
+      information on booking a stall.
     phone: 07988 086161
     email: liz.tierney100@btinternet.com
     letter:
