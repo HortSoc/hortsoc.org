@@ -36,7 +36,7 @@ annual_show:
       label: Letter to Stallholders
       file: /media/documents/annual-show/stallholders-letter-2025.pdf
     application:
-      year: "2025"
+      year: "2026"
       label: Application Form for Stallholders
       url: https://docs.google.com/forms/d/e/1FAIpQLSfHH5j-peeAsppvAKzVNGvSPDhV_cNy42yTLbamNOf08ix4yw/viewform
 ---
