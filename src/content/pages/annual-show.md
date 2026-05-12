@@ -32,9 +32,9 @@ annual_show:
     phone: 07988 086161
     email: liz.tierney100@btinternet.com
     letter:
-      year: "2025"
+      year: "2026"
       label: Letter to Stallholders
-      file: /media/documents/annual-show/stallholders-letter-2025.pdf
+      file: /media/documents/annual-show/stallholders-letter-2026.pdf
     application:
       year: "2026"
       label: Application Form for Stallholders
