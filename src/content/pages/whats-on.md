@@ -4,18 +4,13 @@ status: published
 path: /whats-on/
 source_url: https://hortsoc.org/whats-on/
 migration_status: migrated
-notes: Converted from a Gutenberg-backed WordPress page. Block comments, empty paragraphs, and inline color styling were removed while preserving event dates, poster images, and media links.
+notes: Converted from a Gutenberg-backed WordPress page. Block comments, empty
+  paragraphs, and inline color styling were removed while preserving event
+  dates, poster images, and media links.
 ---
-
 ## 2026
 
-![Plant Sale on 9th May, 10am at Stoke Poges Village Hall](/media/site/home/posters/plant-sale-poster.png)
-
 ---
-
-**Plant Sale**
-
-9th May 2026
 
 **Summer Show**
 
@@ -23,7 +18,6 @@ notes: Converted from a Gutenberg-backed WordPress page. Block comments, empty p
 
 **Social Events 2026**
 
-- 20th May. Talk by Graham Talbot, title awaited, about growing vegetables and fruit.
 - 16th September. Talk by Sandy Primrose.
 - 14th October. Autumn Social. Talk and finger buffet.
 
