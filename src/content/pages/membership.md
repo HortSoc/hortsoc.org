@@ -27,10 +27,6 @@ Please apply using our online **[Membership Form](https://docs.google.com/forms/
 
 Or contact Rich Huckle, Membership Secretary.
 
-  
-Stoke Poges  
-SL2 1PY
-
 Tel: mobile 07736 275427
 
 email: [richhuckle@hotmail.com](mailto:liz.tierney100@btinternet.com)
