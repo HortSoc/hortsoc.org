@@ -25,12 +25,12 @@ Annual Membership runs from 1st August to 31st July.
 
 Please apply using our online **[Membership Form](https://docs.google.com/forms/d/e/1FAIpQLSclrEro64zUCtoUyt-DCOFbhwarv28c3OaF4L1R0rwSauUL9w/viewform)**.
 
-Or contact Liz Tierney, Membership Secretary.
+Or contact Rich Huckle, Membership Secretary.
 
-36 Long Readings Lane  
-Slough  
+  
+Stoke Poges  
 SL2 1PY
 
-Tel: mobile 07988 086161
+Tel: mobile 07736 275427
 
-email: [liz.tierney100@btinternet.com](mailto:liz.tierney100@btinternet.com)
+email: [richhuckle@hotmail.com](mailto:liz.tierney100@btinternet.com)
