@@ -28,7 +28,8 @@ annual_show:
   at_the_show:
     heading: at the Show
     judging_guidelines:
-      label: Judging Guidelines for Allotments, Front Gardens, Pubs and Community Gardens.
+      label: Judging Guidelines for Allotments, Front Gardens, Pubs and Community
+        Gardens.
       file: /media/documents/annual-show/judging-guidelines-allotments-front-gardens-pubs-community-gardens.pdf
   stallholders:
     heading: Stallholder Information
@@ -43,5 +44,5 @@ annual_show:
     application:
       year: "2026"
       label: Application Form for Stallholders
-      url: https://docs.google.com/forms/d/e/1FAIpQLSfHH5j-peeAsppvAKzVNGvSPDhV_cNy42yTLbamNOf08ix4yw/viewform
+      url: https://docs.google.com/forms/d/e/1FAIpQLSeezM0njR2SSkYb5NUTDfhn72oRWXrgCu6skS3xnFdHjoNtrA/viewform?usp=header
 ---
