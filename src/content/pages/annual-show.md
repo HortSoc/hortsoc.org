@@ -8,8 +8,8 @@ notes: Converted from a Gutenberg-backed WordPress page. Empty spacer paragraphs
   and block comments were removed; document links, form links, and contact
   details were preserved.
 annual_show:
-  date_text: 25th July 2026
-  theme: Celebrating 100 Years of David Attenborough
+  date_text: 24th July 2027
+  theme: To be announced
   gallery_notice: Photographs of the 2024 Show can be found in the Gallery.
   gallery_url: /gallery/
   competition:
