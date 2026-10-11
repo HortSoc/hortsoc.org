@@ -11,18 +11,17 @@ sections:
   - type: poster
     title: "2026"
   - type: text
-    body: >+
-      **Summer Show**
+    body: >2+
+       **Next Year's Summer Show**
 
-
-      24th July 2027
+      **24th July 2027**
 
 
       **Social Events 2026**
 
 
-      - 14th October. Autumn Social. Wreath Making Workshop, Table Show
-      (members) and finger buffet.
+      - **14th October. Autumn Social. Wreath Making Workshop, Table Show
+      (members) and finger buffet.**
 
   - type: poster
     title: THE EDWARD GUINNESS CUP
