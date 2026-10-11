@@ -58,9 +58,7 @@
         "summary": "Sign up for membership today for a list of great benefits.",
         "image": {
           "current_path": "/media/site/home/cards/membership.jpg",
-          "source_url": "https://hortsocorg.files.wordpress.com/2016/11/members1.jpg",
-          "alt": "Membership planting image",
-          "status": "ingested_local"
+          "alt": "Membership planting image"
         }
       },
       {
@@ -69,9 +67,7 @@
         "summary": "You can find all of the latest events here.",
         "image": {
           "current_path": "/media/site/home/cards/whats-on.jpg",
-          "source_url": "https://hortsocorg.files.wordpress.com/2016/11/band1.jpg",
-          "alt": "What's On event image",
-          "status": "ingested_local"
+          "alt": "What's On event image"
         }
       },
       {
@@ -80,9 +76,7 @@
         "summary": "Check out a selection of photos from past events here.",
         "image": {
           "current_path": "/media/site/home/cards/gallery.jpg",
-          "source_url": "https://hortsocorg.files.wordpress.com/2016/11/marrows.jpg",
-          "alt": "Gallery image from a past event",
-          "status": "ingested_local"
+          "alt": "Gallery image from a past event"
         }
       }
     ],
@@ -101,8 +95,6 @@
       "body": "Of interest to 16-30 year olds, particularly students and those involved in a horticultural project. Please see What's On for further information."
     },
     "home_poster": {
-      "current_path": "/media/site/home/posters/2026-show-poster.jpg",
-      "source_url": null,
       "alt": "Summer Show on Saturday 25th July 2026 at Stoke Poges School",
       "status": "ingested_local",
       "notes": "Locally ingested from the supplied 2026 Summer Show poster for the homepage and What's On page."
