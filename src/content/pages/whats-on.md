@@ -21,7 +21,7 @@ sections:
       - **14th October. Autumn Social. Wreath Making Workshop, Table Show
       (members) and finger buffet. See Home Page for full details.**
 
-      - **14th November. Annual General Meeting. 2.00pm.Stoke Poges Village
+      - **14th November. Annual General Meeting. 2.00pm. Stoke Poges Village
       Centre.**
 
   - type: poster
