@@ -95,9 +95,9 @@
       "body": "16-30 year olds, particularly students and those involved in a horticultural project. \nPlease see What's On for further information."
     },
     "home_poster": {
-      "alt": "Summer Show on Saturday 25th July 2026 at Stoke Poges School",
       "status": "ingested_local",
-      "notes": "Locally ingested from the supplied 2026 Summer Show poster for the homepage and What's On page."
+      "notes": "Locally ingested from the supplied 2026 Summer Show poster for the homepage and What's On page.",
+      "current_path": "/media/site/autumn social 2026_1.jpg"
     }
   }
 }
