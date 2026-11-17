@@ -12,8 +12,8 @@ Email the Society at [spwfhortsoc@gmail.com](mailto:spwfhortsoc@gmail.com) or vi
 
 - **President Emeritus:** Jon Homan, 01753 662166, [homanhome@gmail.com](mailto:homanhome@gmail.com)
 - **President:** Ruth Rooley, 01753 648040, [ruth@rooley.com](mailto:ruth@rooley.com)
-- **Chair:** Maureen Barton, 07786 084813, `maureen.barton@live.co.uk`
-- **Vice Chair:** Rich Huckle, 07736 275427, `richhuckle@hotmail.com`
+- **Chair:** Rich Huckle, 07736 275427, `richhuckle@hotmail.com`
+- **Vice Chair:** 
 - **Hon Secretary:** Liz Tierney, 07988 086161, `liz.tierney100@btinternet.com`
 - **Hon Treasurer:** Brian Jeans, 01844 698360, [brianjeans57@gmail.com](mailto:brianjeans57@gmail.com)
 - **Membership Secretary:** Rich Huckle, 07736 275427, `richhuckle@hotmail.com`
@@ -22,4 +22,4 @@ Email the Society at [spwfhortsoc@gmail.com](mailto:spwfhortsoc@gmail.com) or vi
 
 ### Other Committee Members
 
-Maria Brennan MBE, Tracey Clark, Alan Coombs, Becky Godley, Saran Judge, Liz Phippen, Pat Rofe, Cath Smith.
+Maureen Barton, Oliver Bishop, Alan Coombs, Becky Godley, Saran Judge, Liz Phippen, Pat Rofe, Cath Smith.
